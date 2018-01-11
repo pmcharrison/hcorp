@@ -7,3 +7,4 @@ Depends: R (>= 3.4.2)
 License: GPL-2
 Encoding: UTF-8
 LazyData: true
+Suggests: jsonlite,HarmonyUtils,magrittr,plyr,hash,devtools
