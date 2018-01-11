@@ -32,12 +32,3 @@ jazz <- read_json("data-raw/jazz.json") %>%
   collapse_chords %>%
   llply(., encode_chords, .progress = "text")
 use_data(jazz, overwrite = TRUE)
-
-for (i in seq_along(popular)) {
-  composition <- popular[[i]]
-  for (j in seq_along(composition)) {
-    chord <- composition[[j]]
-    pc <- chord %% 12
-    if (anyDuplicated(pc)) browser()
-  }
-}
