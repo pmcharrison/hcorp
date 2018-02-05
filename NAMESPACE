@@ -2,6 +2,7 @@
 
 export(as.Composition)
 export(as.Corpus)
+export(combine_corpora)
 export(declass)
 export(get_chord_counts)
 export(num_compositions)

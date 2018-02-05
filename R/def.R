@@ -96,3 +96,15 @@ setMethod("num_events", signature(x = "Corpus"),
 
 setMethod("declass", signature(x = "Composition"),
           function(x) as.integer(x))
+
+#' @export
+combine_corpora <- function(...) {
+  x <- list(...)
+  assertthat::assert_that(
+    is.list(x),
+    all(sapply(x, function(y) is(y, "Corpus")))
+  )
+  lapply(x, function(y) y@compositions) %>%
+    (function(z) do.call(c, z)) %>%
+    as.Corpus
+}
