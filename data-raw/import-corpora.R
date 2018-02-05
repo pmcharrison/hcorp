@@ -11,24 +11,23 @@ collapse_chords <- function(x) {
   })
 }
 
-message("Importing chord key")
-chord_key <- get_alphabet(format = "list")
-use_data(chord_key, overwrite = TRUE)
-
 message("Importing classical dataset")
 classical <- read_json("data-raw/classical.json") %>%
   collapse_chords %>%
-  llply(., encode_chords, .progress = "text")
+  llply(., encode_chords, .progress = "text") %>%
+  as.Corpus
 use_data(classical, overwrite = TRUE)
 
 message("Importing popular dataset")
 popular <- read_json("data-raw/popular.json") %>%
   collapse_chords %>%
-  llply(., encode_chords, .progress = "text")
+  llply(., encode_chords, .progress = "text") %>%
+  as.Corpus
 use_data(popular, overwrite = TRUE)
 
 message("Importing jazz dataset")
 jazz <- read_json("data-raw/jazz.json") %>%
   collapse_chords %>%
-  llply(., encode_chords, .progress = "text")
+  llply(., encode_chords, .progress = "text")  %>%
+  as.Corpus
 use_data(jazz, overwrite = TRUE)
