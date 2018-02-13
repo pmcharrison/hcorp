@@ -85,6 +85,11 @@ setMethod("as.Composition", signature(x = "numeric"),
             if (!all(x == round(x))) stop("All elements of <x> must be integers")
             new("Composition", events = as.integer(x))
           })
+setMethod("as.Composition", signature(x = "list"),
+          function(x) {
+            if (!all(sapply(x, HarmonyUtils::is.Chord))) stop("All elements of <x> must be chords")
+            x %>% (HarmonyUtils::encode_chords) %>% as.Composition
+          })
 
 #' @export
 setGeneric("num_events", function(x) standardGeneric("num_events"))
