@@ -1,6 +1,6 @@
 #' @export
 setClass(
-  "Corpus",
+  "harmony_corpus",
   slots = list(
     compositions = "list"
   )
@@ -8,7 +8,7 @@ setClass(
 
 #' @export
 setGeneric("declass", function(x) standardGeneric("declass"))
-setMethod("declass", signature(x = "Corpus"),
+setMethod("declass", signature(x = "harmony_corpus"),
           function(x) {
             l <- x@compositions
             for (i in seq_along(l)) {
@@ -19,7 +19,7 @@ setMethod("declass", signature(x = "Corpus"),
 
 #' @export
 setMethod(
-  "show", signature(object = "Corpus"),
+  "show", signature(object = "harmony_corpus"),
   function(object) {
     cat("---\n")
     cat("A harmony corpus\n\n")
@@ -30,31 +30,31 @@ setMethod(
   )
 
 #' @export
-setGeneric("as.Corpus", function(x) standardGeneric("as.Corpus"))
-setMethod("as.Corpus", signature(x = "Corpus"), function(x) x)
+setGeneric("as.harmony_corpus", function(x) standardGeneric("as.harmony_corpus"))
+setMethod("as.harmony_corpus", signature(x = "harmony_corpus"), function(x) x)
 setMethod(
-  "as.Corpus", signature(x = "list"),
+  "as.harmony_corpus", signature(x = "list"),
   function(x) {
     for (i in seq_along(x)) {
-      x[[i]] <- as.Composition(x[[i]])
+      x[[i]] <- as.composition(x[[i]])
     }
-    new("Corpus", compositions = x)
+    new("harmony_corpus", compositions = x)
   }
 )
 
 #' @export
 setGeneric("num_compositions", function(x) standardGeneric("num_compositions"))
-setMethod("num_compositions", signature(x = "Corpus"), function(x) length(x@compositions))
+setMethod("num_compositions", signature(x = "harmony_corpus"), function(x) length(x@compositions))
 
 #' @export
 setMethod(
-  "as.list", signature(x = "Corpus"),
+  "as.list", signature(x = "harmony_corpus"),
   function(x, ...) x@compositions
 )
 
 #' @export
 setClass(
-  "Composition",
+  "composition",
   slots = list(
     events = "integer"
   )
@@ -62,7 +62,7 @@ setClass(
 
 #' @export
 setMethod(
-  "show", signature(object = "Composition"),
+  "show", signature(object = "composition"),
   function(object) {
     cat("---\n")
     cat("A harmony composition\n\n")
@@ -73,33 +73,33 @@ setMethod(
 
 #' @export
 setMethod(
-  "as.integer", signature(x = "Composition"),
+  "as.integer", signature(x = "composition"),
   function(x, ...) x@events
 )
 
 #' @export
-setGeneric("as.Composition", function(x) standardGeneric("as.Composition"))
-setMethod("as.Composition", signature(x = "Composition"), function(x) x)
-setMethod("as.Composition", signature(x = "numeric"),
+setGeneric("as.composition", function(x) standardGeneric("as.composition"))
+setMethod("as.composition", signature(x = "composition"), function(x) x)
+setMethod("as.composition", signature(x = "numeric"),
           function(x) {
             if (!all(x == round(x))) stop("All elements of <x> must be integers")
-            new("Composition", events = as.integer(x))
+            new("composition", events = as.integer(x))
           })
-setMethod("as.Composition", signature(x = "list"),
+setMethod("as.composition", signature(x = "list"),
           function(x) {
             if (!all(sapply(x, HarmonyUtils::is.Chord))) stop("All elements of <x> must be chords")
-            x %>% (HarmonyUtils::encode_chords) %>% as.Composition
+            x %>% (HarmonyUtils::encode_chords) %>% as.composition
           })
 
 #' @export
 setGeneric("num_events", function(x) standardGeneric("num_events"))
-setMethod("num_events", signature(x = "Composition"), function(x) length(x@events))
-setMethod("num_events", signature(x = "Corpus"),
+setMethod("num_events", signature(x = "composition"), function(x) length(x@events))
+setMethod("num_events", signature(x = "harmony_corpus"),
           function(x) {
             sum(vapply(x@compositions, num_events, integer(1)))
           })
 
-setMethod("declass", signature(x = "Composition"),
+setMethod("declass", signature(x = "composition"),
           function(x) as.integer(x))
 
 #' @export
@@ -107,9 +107,9 @@ combine_corpora <- function(...) {
   x <- list(...)
   assertthat::assert_that(
     is.list(x),
-    all(sapply(x, function(y) is(y, "Corpus")))
+    all(sapply(x, function(y) is(y, "harmony_corpus")))
   )
   lapply(x, function(y) y@compositions) %>%
     (function(z) do.call(c, z)) %>%
-    as.Corpus
+    as.harmony_corpus
 }
