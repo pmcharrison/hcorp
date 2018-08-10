@@ -9,4 +9,4 @@ Encoding: UTF-8
 LazyData: true
 Suggests: jsonlite,HarmonyUtils,magrittr,plyr,hash,devtools,
     testthat
-RoxygenNote: 6.0.1
+RoxygenNote: 6.1.0
