@@ -4,9 +4,15 @@ Version: 0.1.0
 Authors@R: person("Peter", "Harrison", email = "pmc.harrison@gmail.com", role = c("aut", "cre"))
 Description: Provides various music corpora for harmonic analysis.
 Depends: R (>= 3.4.2)
-License: GPL-2
+License: CC0
 Encoding: UTF-8
 LazyData: true
-Suggests: jsonlite,HarmonyUtils,magrittr,plyr,hash,devtools,
+Suggests: 
+    hrep,
+    magrittr,
+    jsonlite,
+    plyr,
+    devtools
     testthat
 RoxygenNote: 6.1.0
+Remotes: github/pmcharrison

@@ -1,33 +1,40 @@
-library(HarmonyUtils)
+library(hrep)
 library(magrittr)
 library(jsonlite)
 library(plyr)
 library(devtools)
 
 make_composition <- function(x) {
-  new_harmony_composition(
-    x = x$chords %>%
-      lapply(unlist) %>%
-      lapply(function(y) mod(y, 12L)) %>%
-      lapply(function(z) new_chord(bass_pc = z[1], non_bass_pc_set = z[- 1])),
-    description = x$description
-  )
+  x$chords %>%
+    lapply(unlist) %>%
+    lapply(pc_chord) %>%
+    vec("pc_chord", metadata = list(description = x$description)) %>%
+    encode
 }
 
-message("Importing classical dataset")
-classical <- read_json("data-raw/classical.json") %>%
-  llply(make_composition, .progress = "text") %>%
-  new_harmony_corpus("A selection of common-practice Western tonal music")
-use_data(classical, overwrite = TRUE)
+make_corpus <- function(x, description) {
+  corpus(x, type = "pc_chord", metadata = list(description = description))
+}
 
-message("Importing popular dataset")
-popular <- read_json("data-raw/popular.json") %>%
-  llply(make_composition, .progress = "text") %>%
-  new_harmony_corpus("The McGill Billboard corpus")
-use_data(popular, overwrite = TRUE)
 
-message("Importing jazz dataset")
-jazz <- read_json("data-raw/jazz.json") %>%
-  llply(make_composition, .progress = "text") %>%
-  new_harmony_corpus("The iRb jazz corpus")
-use_data(jazz, overwrite = TRUE)
+import <- function(label, description) {
+  env <- new.env()
+  paste0(label, ".json") %>%
+    file.path("data-raw", .) %>%
+    read_json() %>%
+    llply(make_composition, .progress = "text") %>%
+    make_corpus(description) %>%
+    save(file = file.path("data", paste0(label, ".rda")))
+}
+
+unlink("data", recursive = TRUE)
+dir.create("data")
+
+import("classical1",
+       "A selection of common-practice Western tonal music")
+
+import("popular1",
+       "The McGill Billboard corpus")
+
+import("jazz1",
+       "The iRb jazz corpus")
