@@ -1,4 +1,4 @@
 library(testthat)
-library(HarmonyCorpora)
+library(hcorp)
 
-test_check("HarmonyCorpora")
+test_check("hcorp")

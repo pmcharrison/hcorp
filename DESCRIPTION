@@ -1,18 +1,22 @@
-Package: HarmonyCorpora
+Package: hcorp
 Title: Music Corpora for Harmonic Analysis
 Version: 0.1.0
 Authors@R: person("Peter", "Harrison", email = "pmc.harrison@gmail.com", role = c("aut", "cre"))
 Description: Provides various music corpora for harmonic analysis.
-Depends: R (>= 3.4.2)
+Depends: R (>= 3.4.0)
 License: CC0
 Encoding: UTF-8
 LazyData: true
+RdMacros: Rdpack
+Imports:
+    hrep (>= 0.4.0),
+    checkmate (>= 1.8.5),
+    Rdpack (>= 0.9.0)
 Suggests: 
-    hrep,
-    magrittr,
-    jsonlite,
-    plyr,
-    devtools
-    testthat
+    magrittr (>= 1.5),
+    jsonlite (>= 1.5),
+    plyr (>= 1.8.4),
+    devtools (>= 2.0.1),
+    testthat (>= 2.0.0)
 RoxygenNote: 6.1.0
-Remotes: github/pmcharrison
+Remotes: pmcharrison/hrep
