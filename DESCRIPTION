@@ -17,6 +17,7 @@ Suggests:
     jsonlite (>= 1.5),
     plyr (>= 1.8.4),
     devtools (>= 2.0.1),
-    testthat (>= 2.0.0)
-RoxygenNote: 6.1.0
+    testthat (>= 2.0.0),
+    covr
+RoxygenNote: 6.1.1
 Remotes: pmcharrison/hrep
