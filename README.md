@@ -10,6 +10,7 @@ status](https://travis-ci.org/pmcharrison/hcorp.svg?branch=master)](https://trav
 status](https://ci.appveyor.com/api/projects/status/github/pmcharrison/hcorp?branch=master&svg=true)](https://ci.appveyor.com/project/pmcharrison/hcorp)
 [![Coverage
 status](https://coveralls.io/repos/github/pmcharrison/hcorp/badge.svg)](https://coveralls.io/r/pmcharrison/hcorp?branch=master)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.2545754.svg)](https://doi.org/10.5281/zenodo.2545754)
 
 This R package provides several datasets of chord sequences as used in
 Harrison & Pearce (2018). These datasets are expressly for research
