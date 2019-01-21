@@ -1,6 +1,6 @@
 Package: hcorp
 Title: Music Corpora for Harmonic Analysis
-Version: 0.1.0
+Version: 0.2.0
 Authors@R: person("Peter", "Harrison", email = "pmc.harrison@gmail.com", role = c("aut", "cre"))
 Description: Provides various music corpora for harmonic analysis.
 Depends: R (>= 3.4.0)
