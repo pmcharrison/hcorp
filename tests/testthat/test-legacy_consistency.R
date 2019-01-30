@@ -22,4 +22,11 @@ test_that("examples from reading json", {
   # Jazz beginning of composition 1
   test(old = list(c(53,60,64,69),c(56,60,63,66),c(49,60,65,68),c(52,62,68,71)),
        new = hcorp::jazz_1[[1]][1:4])
+
+  # Bach chorales beginning of composition 1
+  expect_equal(list(c(43, 59, 62, 67),
+                    c(55, 59, 62, 67),
+                    c(52, 60, 64, 67),
+                    c(52, 59, 64, 67)),
+               hcorp::bach_chorales_1[[1]][1:4] %>% as.list %>% lapply(as.numeric))
 })
