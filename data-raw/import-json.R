@@ -25,7 +25,8 @@ import <- function(label, description, type = "pc_chord", encode = TRUE) {
     make_corpus(description, type = type)
   save(list = label,
        envir = env,
-       file = file.path("data", paste0(label, ".rda")))
+       file = file.path("data", paste0(label, ".rda")),
+       compress = "bzip2")
 }
 
 import("classical_1",
