@@ -7,12 +7,11 @@
 get_corpus(name)
 }
 \arguments{
-\item{name}{(Character scalar) Name of the corpus to access.
-Available names are listed in \code{corpora}.}
+\item{name}{(Character scalar) Name of the corpus to access.}
 }
 \description{
 This function provides an alternative to accessing corpora
 like \code{hcorp::classical_1}.
 Instead, the same corpus can be accessed by calling
-\code{get_corpus("classical")}.
+\code{get_corpus("classical_1")}.
 }
