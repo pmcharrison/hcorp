@@ -20,11 +20,13 @@ knitr::opts_chunk$set(
 [![Coverage status](https://coveralls.io/repos/github/pmcharrison/hcorp/badge.svg)](https://coveralls.io/r/pmcharrison/hcorp?branch=master)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.2545754.svg)](https://doi.org/10.5281/zenodo.2545754)
 
-This R package provides several datasets of chord sequences
-as used in Harrison & Pearce (2018).
+This R package provides several datasets of chord sequences.
 These datasets are expressly for research purposes only.
 
-- `classical_1`: 1,022 pieces compiled from KernScores (http://kern.humdrum.org/),
+- `bach_chorales_1`: 370 chorales by J. S. bach from 
+[KernScores](http://kern.humdrum.org/)
+- `classical_1`: 1,022 classical pieces compiled from
+[KernScores](http://kern.humdrum.org/),
 converted to chord sequences using the algorithm of 
 Pardo & Birmingham (2002).
 - `popular_1`: 739 pieces from the McGill Billboard corpus (Burgoyne, 2011),
