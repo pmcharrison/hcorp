@@ -1,3 +1,5 @@
+- Importing `hrep`
+
 # hcorp 0.3.0
 
 - Added `bach_chorales_1`
