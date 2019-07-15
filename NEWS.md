@@ -1,3 +1,5 @@
+- Fixed `get_corpus` so that it works properly from other packages.
+
 # hcorp 0.5.0
 
 - Added tonality information to metadata.

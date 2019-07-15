@@ -16,10 +16,13 @@ This R package provides several datasets of chord sequences. These
 datasets are expressly for research purposes only.
 
   - `bach_chorales_1`: 370 chorales by J. S. bach from
-    [KernScores](http://kern.humdrum.org/)
+    [KernScores](http://kern.humdrum.org/), represented as salami slices
+  - `bach_chorales_1b`: same as `bach_chorales_1`, but converted to chord sequences
+     using the algorithm of Pardo & Birmingham (2002).
   - `classical_1`: 1,022 classical pieces compiled from
     [KernScores](http://kern.humdrum.org/), converted to chord sequences
     using the algorithm of Pardo & Birmingham (2002).
+  - `classical_1b`: same as `classical_1`, but represented as salami slices
   - `popular_1`: 739 pieces from the McGill Billboard corpus (Burgoyne,
     2011), converted from chord symbols to pitch-class sets by Harrison
     & Pearce (2018).
