@@ -36,3 +36,17 @@
 #' \insertAllCited{}
 #' @keywords data
 NULL
+
+#' Classical corpus 1b
+#'
+#' Equivalent to \code{\link{classical_1}} but without applying
+#' any chord labelling algorithm
+#' (i.e. instead applying full expansion, a.k.a. salami slicing).
+#' The dataset has a 'pitch chord' representation (\code{\link[hrep]{pi_chord}});
+#' a pitch chord corresponds to the set of MIDI note numbers in the sonority.
+#'
+#' @name classical_1b
+#' @docType data
+#' @keywords data
+NULL
+
