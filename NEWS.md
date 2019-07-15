@@ -1,3 +1,5 @@
+# hcorp 0.5.0
+
 - Added tonality information to metadata.
 - Added `classical_1b`
 - Added `bach_chorales_1b`
