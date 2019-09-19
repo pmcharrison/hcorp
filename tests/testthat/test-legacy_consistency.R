@@ -1,7 +1,7 @@
 context("legacy_consistency")
 
-library(magrittr)
 library(hrep)
+library(magrittr)
 
 test_that("examples from reading json", {
   test <- function(old, new) {
@@ -29,4 +29,27 @@ test_that("examples from reading json", {
                     c(52, 60, 64, 67),
                     c(52, 59, 64, 67)),
                hcorp::bach_chorales_1[[1]][1:4] %>% as.list %>% lapply(as.numeric))
+})
+
+test_that("more thorough legacy tests", {
+  summarise_corpus <- function(x) {
+    as.list(x[1:20]) %>%
+      lapply(function(composition) as.list(hrep::decode(composition)))
+  }
+
+  get_core_corpora <- function() {
+    list(classical_1 = hcorp::classical_1,
+         popular_1 = hcorp::popular_1,
+         jazz_1 = hcorp::jazz_1)
+  }
+
+  if (FALSE) {
+    get_core_corpora() %>%
+      lapply(summarise_corpus) %>%
+      saveRDS("inst/regression-tests/regression-1.rds")
+  }
+
+  get_core_corpora() %>%
+    lapply(summarise_corpus) %>%
+    expect_equal(readRDS("inst/regression-tests/regression-1.rds"))
 })
