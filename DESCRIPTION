@@ -5,7 +5,7 @@ Authors@R: person("Peter", "Harrison", email = "pmc.harrison@gmail.com", role = 
 Description: Provides various music corpora for harmonic analysis.
 Depends: 
     R (>= 3.4.0),
-    hrep (>= 0.4.0)
+    hrep (>= 0.10.0.9001)
 License: CC0
 Encoding: UTF-8
 LazyData: true
@@ -19,6 +19,6 @@ Suggests:
     plyr (>= 1.8.4),
     devtools (>= 2.0.1),
     testthat (>= 2.0.0),
-    covr
+    covr (>= 3.2.1)
 RoxygenNote: 6.1.1
 Remotes: pmcharrison/hrep

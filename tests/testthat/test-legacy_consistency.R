@@ -51,5 +51,7 @@ test_that("more thorough legacy tests", {
 
   get_core_corpora() %>%
     lapply(summarise_corpus) %>%
-    expect_equal(readRDS("inst/regression-tests/regression-1.rds"))
+    expect_equal(readRDS(system.file("regression-tests/regression-1.rds",
+                                     package = "hcorp",
+                                     mustWork = TRUE)))
 })

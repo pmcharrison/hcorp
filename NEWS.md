@@ -1,3 +1,4 @@
+- Updated to reflect latest alphabet definitions in the `hrep` package.
 - Fixed `get_corpus` so that it works properly from other packages.
 
 # hcorp 0.5.0
