@@ -1,3 +1,5 @@
+- Fixed merge conflict in README.
+
 # hcorp 0.6.1
 
 - Minor fix to README.
