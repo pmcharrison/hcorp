@@ -1,3 +1,5 @@
+# hcorp 0.6.1
+
 # hcorp 0.6.0
 
 - Updated to reflect latest alphabet definitions in the `hrep` package.
