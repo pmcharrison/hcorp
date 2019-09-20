@@ -16,13 +16,13 @@ This R package provides several datasets of chord sequences. These
 datasets are expressly for research purposes only.
 
   - `bach_chorales_1`: 370 chorales by J. S. bach from
-    [KernScores](http://kern.humdrum.org/), represented as salami slices
-  - `bach_chorales_1b`: same as `bach_chorales_1`, but converted to chord sequences
-     using the algorithm of Pardo & Birmingham (2002).
+    [KernScores](http://kern.humdrum.org/), represented as salami
+    slices.
+  - `bach_chorales_1b`: Same as `bach_chorales_1`, but converted to
+    chord sequences using the algorithm of Pardo & Birmingham (2002).
   - `classical_1`: 1,022 classical pieces compiled from
     [KernScores](http://kern.humdrum.org/), converted to chord sequences
     using the algorithm of Pardo & Birmingham (2002).
-  - `classical_1b`: same as `classical_1`, but represented as salami slices
   - `popular_1`: 739 pieces from the McGill Billboard corpus (Burgoyne,
     2011), converted from chord symbols to pitch-class sets by Harrison
     & Pearce (2018).
@@ -110,7 +110,7 @@ memory efficiency, and useful for certain modelling approaches.
 
 ``` r
 classical_1[[1]] %>% as.integer %>% head
-#> [1] 14375  8298 12325 14375  4317  8253
+#> [1] 14481  8473 12553 14481  4245  8465
 ```
 
 These vectors can be decoded with the function `decode`.
@@ -140,6 +140,12 @@ metadata(classical_1)
 metadata(classical_1[[1]])
 #> $description
 #> [1] "bach-chor001"
+#> 
+#> $keysig
+#> [1] 1
+#> 
+#> $mode
+#> [1] 0
 ```
 
 Corpora and sequences can be subsetted and combined like lists.

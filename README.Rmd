@@ -11,6 +11,7 @@ knitr::opts_chunk$set(
   fig.path = "man/figures/README-",
   out.width = "100%"
 )
+library(hrep)
 ```
 # hcorp: Music corpora for harmonic analysis
 
@@ -24,7 +25,10 @@ This R package provides several datasets of chord sequences.
 These datasets are expressly for research purposes only.
 
 - `bach_chorales_1`: 370 chorales by J. S. bach from 
-[KernScores](http://kern.humdrum.org/)
+[KernScores](http://kern.humdrum.org/),
+represented as salami slices.
+- `bach_chorales_1b`: Same as `bach_chorales_1`, but converted to chord sequences
+using the algorithm of Pardo & Birmingham (2002).
 - `classical_1`: 1,022 classical pieces compiled from
 [KernScores](http://kern.humdrum.org/),
 converted to chord sequences using the algorithm of 
