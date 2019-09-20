@@ -8,5 +8,7 @@
 #' @export
 get_corpus <- function(name) {
   checkmate::qassert(name, "S1")
-  get(name)
+  env <- new.env()
+  utils::data(list = name, package = "hcorp", envir = env)
+  as.list(env)[[1]]
 }
