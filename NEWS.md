@@ -1,3 +1,5 @@
+# hcorp 0.6.2
+
 - Fixed merge conflict in README.
 
 # hcorp 0.6.1
