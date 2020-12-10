@@ -6,6 +6,10 @@ cache: packages
 warnings_are_errors: true
 os:
   - linux
+  
+before_install:
+  sudo apt-get update &
+  sudo apt-get install libgit2-dev
 
 after_success:
     - Rscript -e 'covr::coveralls()'
