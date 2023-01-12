@@ -1,3 +1,5 @@
+# hcorp 0.7.0
+
 - Update for hrep v0.16.0.
 
 # hcorp 0.6.2
