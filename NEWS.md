@@ -1,3 +1,5 @@
+- Update for hrep v0.16.0.
+
 # hcorp 0.6.2
 
 - Fixed merge conflict in README.
