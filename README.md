@@ -15,22 +15,21 @@ status](https://coveralls.io/repos/github/pmcharrison/hcorp/badge.svg)](https://
 This R package provides several datasets of chord sequences. These
 datasets are expressly for research purposes only.
 
-  - `bach_chorales_1`: 370 chorales by J. S. bach from
-    [KernScores](http://kern.humdrum.org/), represented as salami
-    slices.
-  - `bach_chorales_1b`: same as `bach_chorales_1`, but converted to
-    chord sequences using the algorithm of Pardo & Birmingham (2002).
-  - `classical_1`: 1,022 classical pieces compiled from
-    [KernScores](http://kern.humdrum.org/), converted to chord sequences
-    using the algorithm of Pardo & Birmingham (2002).
-  - `classical_1b`: same as `classical_1`, but represented as salami
-    slices
-  - `popular_1`: 739 pieces from the McGill Billboard corpus (Burgoyne,
-    2011), converted from chord symbols to pitch-class sets by Harrison
-    & Pearce (2018).
-  - `jazz_1`: 1,186 pieces from the iRB corpus (Broze & Shanahan, 2013),
-    converted from chord symbols to pitch-class sets by Harrison &
-    Pearce (2018).
+- `bach_chorales_1`: 370 chorales by J. S. bach from
+  [KernScores](http://kern.humdrum.org/), represented as salami slices.
+- `bach_chorales_1b`: same as `bach_chorales_1`, but converted to chord
+  sequences using the algorithm of Pardo & Birmingham (2002).
+- `classical_1`: 1,022 classical pieces compiled from
+  [KernScores](http://kern.humdrum.org/), converted to chord sequences
+  using the algorithm of Pardo & Birmingham (2002).
+- `classical_1b`: same as `classical_1`, but represented as salami
+  slices
+- `popular_1`: 739 pieces from the McGill Billboard corpus (Burgoyne,
+  2011), converted from chord symbols to pitch-class sets by Harrison &
+  Pearce (2018).
+- `jazz_1`: 1,186 pieces from the iRB corpus (Broze & Shanahan, 2013),
+  converted from chord symbols to pitch-class sets by Harrison & Pearce
+  (2018).
 
 For more details, see the package’s documentation (e.g. `?classical_1`).
 
@@ -104,7 +103,7 @@ Encoded vectors are objects of class `coded_vec`.
 
 ``` r
 classical_1[[1]] %>% class
-#> [1] "coded_vec" "integer"
+#> [1] "coded_vec_pc_chord" "coded_vec"          "integer"
 ```
 
 Internally, encoded vectors are sequences of integers. This is good for
@@ -175,6 +174,29 @@ c(classical_1[1:3],
 #>   symbol type = 'pc_chord'
 #>   coded = true
 ```
+
+## Pardo & Birmingham templates
+
+Several of these corpora were converted into chord sequences using Pardo
+& Birmingham’s (2002) algorithm with an extended template dictionary.
+This extended dictionary is provided here:
+
+| Pitch classes | Name    | Weight |
+|---------------|---------|--------|
+| 0 4 7         | maj     | 0.436  |
+| 0 4 7 10      | dom7    | 0.219  |
+| 0 3 7         | min     | 0.194  |
+| 0 3 6 9       | dim7    | 0.044  |
+| 0 3 6 10      | hdim7   | 0.037  |
+| 0 3 6         | dim     | 0.018  |
+| 0 4 7 11      | maj7    | 0.2    |
+| 0 3 7 10      | min7    | 0.2    |
+| 0 4 8         | aug     | 0.02   |
+| 0 7           | no3     | 0.05   |
+| 0 7 10        | min7no3 | 0.05   |
+
+Note: only the first 6 (maj to dim) are present in Pardo & Birmingham’s
+original paper, the rest were added for this work.
 
 ## References
 
